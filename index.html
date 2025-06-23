@@ -2,11 +2,17 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slider TGC</title>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- SLIDER -->
     <style>
+        /* Reset y configuración base */
         * {
             box-sizing: border-box;
         }
@@ -14,121 +20,158 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: sans-serif;
-            background: #f0f0f0;
         }
 
-        .slider-container {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            padding: 20px 0;
-        }
-
-        .slider-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .slide {
-            min-width: calc(100% / 3);
-            box-sizing: border-box;
+        /* Swiper contenedor principal */
+        .swiper {
+            width: 100vw;
             height: 400px;
+            margin: 0;
+            padding: 0;
         }
 
-        .slide img {
+        /* Slides wrapper */
+        .swiper-wrapper {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        /* Cada slide */
+        .swiper-slide {
+            padding: 0 !important;
+            margin: 0 !important;
+            height: 100%;
+        }
+
+        /* Imágenes dentro del slide */
+        .swiper-slide img {
             width: 100%;
-            border-radius: 15px;
+            height: 100%;
             display: block;
-            height: 400px;
             object-fit: cover;
+            border-radius: 15px;
         }
 
-        .dots {
-            text-align: center;
-            margin-top: 10px;
+        /* Dots de paginación */
+        .swiper-pagination {
             position: absolute;
             bottom: 30px;
-            left: calc(50% - 50px);
+            left: calc(50% - 30px);
+            /* ← corregido: había un error de sintaxis */
+        }
+    </style>
+    <!-- SLIDER -->
+
+    <style>
+        .content-block {
+            padding: 0 10%;
+            /* padding a los bordes de la pantalla */
         }
 
-        .dot {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            margin: 0 5px;
-            background-color: #ccc;
-            border-radius: 50%;
-            cursor: pointer;
+        .grid-row {
+            display: flex;
+            flex-direction: row;
+            /* espacio entre columnas */
+            padding: 0px 30px;
         }
 
-        .dot.active {
-            background-color: #333;
+        .text-block {
+            /* estilos para el texto */
+            width: 70%;
+            text-align: right;
+            align-content: center;
+            padding: 0px 50px;
+        }
+        .logo-block {
+            width: 30%;
+        }
+        .logo-block img {
+            width: 100%;
+            height: 300px;
+            display: block;
+            object-fit: cover;
+            /* opcional: limita el tamaño del logo */
         }
 
+        /* Responsive (opcional) */
         @media (max-width: 768px) {
-            .slide {
-                min-width: calc(100% / 2);
+            .grid-row {
+                grid-template-columns: 1fr;
+                /* stack vertical en pantallas pequeñas */
+                gap: 10px;
             }
-        }
 
-        @media (max-width: 480px) {
-            .slide {
-                min-width: 100%;
+            .logo-block {
+                text-align: center;
+            }
+
+            .logo-block img {
+                max-width: 100px;
+                margin: 0 auto;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="slider-container">
-        <div class="slider-track" id="sliderTrack">
-            <div class="slide"><img src="img/image.jpg" alt="1"></div>
-            <div class="slide"><img src="img/image.jpg" alt="2"></div>
-            <div class="slide"><img src="img/image.jpg" alt="3"></div>
-            <div class="slide"><img src="img/image.jpg" alt="4"></div>
-            <div class="slide"><img src="img/image.jpg" alt="5"></div>
+    <!-- SLIDER -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper" id="sliderTrack">
+            <div class="swiper-slide"><img src="img/image.jpg" /></div>
+            <div class="swiper-slide"><img src="img/image.jpg" /></div>
+            <div class="swiper-slide"><img src="img/image.jpg" /></div>
+            <div class="swiper-slide"><img src="img/image.jpg" /></div>
+            <div class="swiper-slide"><img src="img/image.jpg" /></div>
         </div>
+        <div class="swiper-pagination"></div>
 
-        <div class="dots" id="dots"></div>
     </div>
+    <section class="content-block">
+        <div class="grid-row">
+            <div class="text-block">
+                <h2>LA CALIDAD DE NUESTROS PRODUCTOS</h2>
+                <p>
+                   ESTÁ EN LAS MANOS Y EN LA PASIÓN DE NUESTRA GENTE.
+                </p>
+            </div>
+            <div class="logo-block">
+                <img src="img/image.jpg" alt="Logo" />
+            </div>
+        </div>
+    </section>
+    <!-- SLIDER -->
+    <!-- SLIDER -2 -->
+    <!-- SLIDER -2 -->
 
 </body>
-<script type="text/javascript">
-
-    const track = document.getElementById('sliderTrack');
-    const slides = document.querySelectorAll('.slide');
-    const dotsContainer = document.getElementById('dots');
-    const visibleSlides = 3;
-    const totalSteps = slides.length - visibleSlides + 1;
-    let current = 0;
-
-    // Create dots
-    for (let i = 0; i < totalSteps; i++) {
-        const dot = document.createElement('span');
-        dot.classList.add('dot');
-        if (i === 0) dot.classList.add('active');
-        dot.dataset.index = i;
-        dot.addEventListener('click', () => {
-            current = i;
-            updateSlider();
-        });
-        dotsContainer.appendChild(dot);
-    }
-
-    function updateSlider() {
-        const slideWidth = slides[0].offsetWidth + 20; // 10px padding on each side
-        track.style.transform = `translateX(-${slideWidth * current}px)`;
-        document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
-        if (dotsContainer.children[current])
-            dotsContainer.children[current].classList.add('active');
-    }
-
-    // Autoplay
-    setInterval(() => {
-        current = (current + 1) % totalSteps;
-        updateSlider();
-    }, 3000);
+<!-- SLIDER -->
+<script>
+    const swiper = new Swiper(".mySwiper", {
+        loop: true,
+        slidesPerView: 3,
+        centeredSlides: false,
+        spaceBetween: 0,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        breakpoints: {
+            768: {
+                slidesPerView: 3,
+            },
+            480: {
+                slidesPerView: 2,
+            },
+            0: {
+                slidesPerView: 1,
+            },
+        },
+    });
 </script>
+<!-- SLIDER -->
 
 </html>
