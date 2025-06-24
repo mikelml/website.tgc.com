@@ -67,6 +67,50 @@
             z-index: 2;
         }
     </style>
+    <style>
+        /* Contenedor principal */
+        #carrusel-enfoque {
+            display: flex;
+            gap: 20px;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            scroll-padding: 0 50%;
+            padding: 40px 0;
+            scroll-behavior: smooth;
+        }
+
+        /* Oculta scroll bar */
+        #carrusel-enfoque::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Cada ítem del carrusel */
+        #carrusel-enfoque .carrusel-item {}
+
+        /* Imágenes dentro del carrusel */
+        #carrusel-enfoque .carrusel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* El ítem centrado: usando JS se activa esta clase */
+        #carrusel-enfoque .carrusel-item.activo {}
+
+        .carrusel-item {
+            filter: blur(4px);
+            transform: scale(0.9);
+            opacity: 0.6;
+            transition: all 0.4s ease;
+        }
+
+        .carrusel-item.activo {
+            filter: none;
+            transform: scale(1.1);
+            opacity: 1;
+            z-index: 2;
+        }
+    </style>
 </head>
 
 <body>
