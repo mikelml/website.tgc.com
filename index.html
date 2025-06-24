@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,19 +11,66 @@
             font-size: 90px;
             color: blue;
         }
-        .img { 
+
+        .img {
             height: 100px;
             width: 100px;
         }
+
         .img-class {
             background-image: url('./img/image.jpg');
             height: 200px;
             background-repeat: repeat;
         }
     </style>
+    <style>
+        /* Contenedor principal */
+        #carrusel-enfoque {
+            display: flex;
+            gap: 20px;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            scroll-padding: 0 50%;
+            padding: 40px 0;
+            scroll-behavior: smooth;
+        }
+
+        /* Oculta scroll bar */
+        #carrusel-enfoque::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Cada ítem del carrusel */
+        #carrusel-enfoque .carrusel-item {}
+
+        /* Imágenes dentro del carrusel */
+        #carrusel-enfoque .carrusel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* El ítem centrado: usando JS se activa esta clase */
+        #carrusel-enfoque .carrusel-item.activo {}
+
+        .carrusel-item {
+            filter: blur(4px);
+            transform: scale(0.9);
+            opacity: 0.6;
+            transition: all 0.4s ease;
+        }
+
+        .carrusel-item.activo {
+            filter: none;
+            transform: scale(1.1);
+            opacity: 1;
+            z-index: 2;
+        }
+    </style>
 </head>
+
 <body>
-   <div>header</div>
+    <div>header</div>
     <script src="/components/header.html"></script>
     <div class="text-class">
         HOLA MUNDO
@@ -31,7 +79,65 @@
         HOLA MUNDO
     </div>
     <div class="img-class">hey</div>
-    <img class="img" src="img/image.jpg"></div>
+    <img class="img" src="img/image.jpg" />
+    <div id="carrusel-enfoque" class="carrusel-container"> <!-- Mio-->
+        <div class="carrusel-item"> <!-- Imagen o contenido -->
+            <img src="https://esponjaslupita.com/wp/wp-content/uploads/2025/06/RASPBERRIES-ORGANIC-scaled.png"
+                alt="imagen 1" />
+        </div>
+        <div class="carrusel-item">
+            <img src="https://esponjaslupita.com/wp/wp-content/uploads/2025/06/STRAWBERRIES-ORGANIC-scaled.png"
+                alt="imagen 2" />
+        </div>
+        <div class="carrusel-item">
+
+
+            <img src="https://esponjaslupita.com/wp/wp-content/uploads/2025/06/BLUEBERRIES-ORGANIC-scaled.png"
+                alt="imagen 3" />
+
+        </div>
+
+
+
+    </div>
 </body>
+
 <script type="text/javascript" src="index.js"></script>
+<script>
+    const contenedor = document.getElementById("carrusel-enfoque");
+    const items = contenedor.querySelectorAll(".carrusel-item");
+
+    function actualizarEnfoque() {
+        const centro = contenedor.scrollLeft + contenedor.offsetWidth / 2;
+
+        alert('hola corris')
+        let itemMasCercano = null;
+        let menorDistancia = Infinity;
+
+        items.forEach(item => {
+            const distancia = Math.abs(
+                centro - (item.offsetLeft + item.offsetWidth / 2)
+            );
+            if (distancia < menorDistancia) {
+                menorDistancia = distancia;
+                itemMasCercano = item;
+            }
+        });
+
+        items.forEach(item => item.classList.remove("activo"));
+        if (itemMasCercano) itemMasCercano.classList.add("activo");
+    }
+
+    contenedor.addEventListener("scroll", () => {
+        window.requestAnimationFrame(actualizarEnfoque);
+    });
+
+    window.addEventListener("load", () => {
+        actualizarEnfoque();
+        setInterval(() => {
+            contenedor.scrollLeft += items[0].offsetWidth + 20; // avanza al siguiente item
+        }, 1000);
+    });
+</script>
+
 </html>
