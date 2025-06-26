@@ -12,6 +12,12 @@
 
     <!-- SLIDER -->
     <style>
+        .back_line {
+            width: 100vw;
+            height: 30px;
+            background-color: black;
+        }
+
         /* Reset y configuración base */
         * {
             box-sizing: border-box;
@@ -38,8 +44,6 @@
 
         /* Cada slide */
         .swiper-slide {
-            padding: 0 !important;
-            margin: 0 !important;
             height: 100%;
         }
 
@@ -60,8 +64,6 @@
             /* ← corregido: había un error de sintaxis */
         }
     </style>
-    <!-- SLIDER -->
-
     <style>
         .content-block {
             padding: 0 10%;
@@ -82,9 +84,11 @@
             align-content: center;
             padding: 0px 50px;
         }
+
         .logo-block {
             width: 30%;
         }
+
         .logo-block img {
             width: 100%;
             height: 300px;
@@ -111,17 +115,276 @@
             }
         }
     </style>
+    <!-- SLIDER -->
+    <!-- SLIDER  2 -->
+    <style>
+        #centered-slider {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        #centered-slider .swiper {
+            width: 100%;
+            padding-bottom: 40px;
+            overflow: hidden;
+        }
+
+        #centered-slider .centeredSwiper {
+            height: 400px;
+            padding-top: 70px;
+            width: 100%;
+            padding-bottom: 0px;
+            height: 100%;
+        }
+
+        #centered-slider .swiper-slide {
+            width: 100%;
+            height: 400px;
+            transition: all 0.5s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #centered-slider .swiper-slide img {
+            width: 100%;
+            height: 70%;
+            border-radius: 15px;
+            transition: all 0.4s ease;
+            max-width: 100%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #centered-slider .swiper-slide div {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: blue;
+            margin-top: 10px;
+        }
+
+        #centered-slider .swiper-slide:not(.swiper-slide-active) {
+            transform: scale(0.85);
+            filter: blur(2px);
+            opacity: 0.7;
+        }
+
+        #centered-slider .swiper-slide.swiper-slide-active {
+            transform: scale(1);
+            filter: none;
+            opacity: 1;
+            z-index: 10;
+        }
+
+        /* Flechas personalizadas por fuera del contenedor swiper */
+        #centered-slider .swiper-nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 20;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        #centered-slider .swiper-button-prev {
+            left: -50px;
+            /* más alejado */
+        }
+
+        #centered-slider .swiper-button-next {
+            right: -50px;
+            /* más alejado */
+        }
+
+        #centered-slider .swiper-nav-button::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            margin: auto;
+            border-style: solid;
+            border-width: 8px 6px 8px 6px;
+            border-color: transparent;
+        }
+
+        #centered-slider .swiper-button-prev::after {
+            border-right-color: #333;
+        }
+
+        #centered-slider .swiper-button-next::after {
+            border-left-color: #333;
+        }
+
+        #centered-slider .slider2-text {
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: blue;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+    </style>
+
+    <!-- SLIDER  2 -->
+    <!-- SLIDER  3 -->
+    <style>
+        #side-slider-section {
+            max-width: 100%;
+            margin: 60px auto;
+            position: relative;
+            padding-left: 20px;
+            /* deja espacio para flecha izquierda */
+            overflow: visible;
+            display: flex;
+            flex-direction: row;
+            /* necesario para que se vea el "medio slide" derecho */
+        }
+
+        #side-slider {
+            max-width: 30%;
+            margin: 60px auto;
+            position: relative;
+            padding-left: 20px;
+            /* deja espacio para flecha izquierda */
+            overflow: visible;
+            /* necesario para que se vea el "medio slide" derecho */
+        }
+
+        /* #side-slider .text-container {
+            width: 50%;
+        } */
+
+        /* #side-slider .swiper-container {
+            position: relative;
+            width: 50%;
+        } */
+
+        #side-slider .swiper-wrapper {
+            padding-right: 20px;
+        }
+
+        #side-slider .swiper-slide {
+            width: auto;
+            flex-shrink: 0;
+            max-width: 600px;
+            /* ancho máximo del slide */
+            transition: transform 0.4s ease;
+        }
+
+        /* #side-slider .swiper-slide .img {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+        } */
+
+        /* Flecha izquierda */
+        #side-slider .swiper-button-prev {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            z-index: 10;
+            transform: translateY(-50%);
+            background: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        #side-slider .swiper-button-prev::after {
+            content: '';
+            display: inline-block;
+            border-style: solid;
+            border-width: 8px 6px 8px 6px;
+            border-color: transparent;
+            border-right-color: #333;
+        }
+
+        /* Ocultar flecha derecha */
+        #side-slider .swiper-button-next {
+            display: none !important;
+        }
+
+        /* CARD */
+
+
+        #side-slider .side-slide-card {
+            width: 100%;
+            height: 80%;
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            font-family: sans-serif;
+            background: white;
+        }
+
+        #side-slider .side-slide-card-header {
+            display: flex;
+            align-items: center;
+            margin: 10px auto;
+            display: flex;
+            padding: 0px 30px;
+            margin-bottom: 20px;
+        }
+
+        #side-slider .side-slide-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        #side-slider .side-slide-stars {
+            margin-left: 40px;
+            margin-right: 40px;
+            font-size: 40px;
+            color: #ffc107;
+            /* amarillo estrella */
+            white-space: nowrap;
+        }
+
+        #side-slider .side-slide-card-body {
+            padding: 0px 30px;
+            display: flex;
+            align-items: self-start;
+            position: relative;
+        }
+
+        #side-slider .side-slide-review-text {
+            font-size: 30px;
+            margin: 0;
+            width: 80%;
+        }
+
+        #side-slider .side-slide-icon {
+            width: 50px;
+            height: 50px;
+            margin-left: 8px;
+            border-radius: 0;
+            position: absolute;
+            right: 18%;
+            top: -4%;
+        }
+    </style>
+
+    <!-- SLIDER  3 -->
+
 </head>
 
 <body>
     <!-- SLIDER -->
     <div class="swiper mySwiper">
         <div class="swiper-wrapper" id="sliderTrack">
-            <div class="swiper-slide"><img src="img/image.jpg" /></div>
-            <div class="swiper-slide"><img src="img/image.jpg" /></div>
-            <div class="swiper-slide"><img src="img/image.jpg" /></div>
-            <div class="swiper-slide"><img src="img/image.jpg" /></div>
-            <div class="swiper-slide"><img src="img/image.jpg" /></div>
+            <div class="swiper-slide"><img src="img/calidad/image1.jpg" /></div>
+            <div class="swiper-slide"><img src="img/calidad/image2.jpg" /></div>
+            <div class="swiper-slide"><img src="img/calidad/image3.jpg" /></div>
+            <div class="swiper-slide"><img src="img/calidad/image4.jpg" /></div>
         </div>
         <div class="swiper-pagination"></div>
 
@@ -131,7 +394,7 @@
             <div class="text-block">
                 <h2>LA CALIDAD DE NUESTROS PRODUCTOS</h2>
                 <p>
-                   ESTÁ EN LAS MANOS Y EN LA PASIÓN DE NUESTRA GENTE.
+                    ESTÁ EN LAS MANOS Y EN LA PASIÓN DE NUESTRA GENTE.
                 </p>
             </div>
             <div class="logo-block">
@@ -141,7 +404,107 @@
     </section>
     <!-- SLIDER -->
     <!-- SLIDER -2 -->
+    <div class="back_line"></div>
+
+    <section id="centered-slider">
+        <div class="swiper-nav-button swiper-button-prev"></div>
+        <div class="swiper-nav-button swiper-button-next"></div>
+        <div class="swiper centeredSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="img/image.jpg" />
+                    <div>TEXT</div>
+                </div>
+                <div class="swiper-slide"><img src="img/image.jpg" />
+                    <div>TEXT 2</div>
+                </div>
+                <div class="swiper-slide"><img src="img/image.jpg" />
+                    <div>TEXT 3</div>
+                </div>
+                <div class="swiper-slide"><img src="img/image.jpg" />
+                    <div>TEXT 4</div>
+                </div>
+                <div class="swiper-slide"><img src="img/image.jpg" />
+                    <div>TEXT 5</div>
+                </div>
+            </div>
+        </div>
+        <div class="slider2-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br>
+            tempor incididunt ut labore et dolore magna aliqua
+        </div>
+    </section>
     <!-- SLIDER -2 -->
+    <div class="back_line"></div>
+
+    <!-- SLIDER -3 -->
+    <section id="side-slider-section">
+        <div class="text-container">
+            <div>
+                <h1>Negocios que confían en nosotros</h1>
+            </div>
+            <div>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Nisl tincidunt eget nullam non.
+            </div>
+            <div>
+                <a href="/">MORE INFO</a>
+            </div>
+        </div>
+        <section id="side-slider">
+            <div class="swiper-container">
+                <div class="swiper-button-prev"></div>
+
+                <div class="swiper sideSwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="side-slide-card">
+                                <div class="side-slide-card-header">
+                                    <img src="img/image.jpg" alt="User photo" class="side-slide-avatar" />
+                                    <div class="side-slide-stars">★★★★★</div>
+                                </div>
+                                <div class="side-slide-card-body">
+                                    <p class="side-slide-review-text">Lorem ipsum dolor sit amet,<br> consectetur
+                                        adipiscing elit</p>
+                                    <img src="https://w7.pngwing.com/pngs/604/836/png-transparent-quotation-mark-computer-icons-pull-quote-quote-logo-monochrome-computer-wallpaper-thumbnail.png"
+                                        alt="icon" class="side-slide-icon" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="side-slide-card">
+                                <div class="side-slide-card-header">
+                                    <img src="img/image.jpg" alt="User photo" class="side-slide-avatar" />
+                                    <div class="side-slide-stars">★★★★★</div>
+                                </div>
+                                <div class="side-slide-card-body">
+                                    <p class="side-slide-review-text">Lorem ipsum dolor sit amet,<br> consectetur
+                                        adipiscing elit</p>
+                                    <img src="https://w7.pngwing.com/pngs/604/836/png-transparent-quotation-mark-computer-icons-pull-quote-quote-logo-monochrome-computer-wallpaper-thumbnail.png"
+                                        alt="icon" class="side-slide-icon" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="side-slide-card">
+                                <div class="side-slide-card-header">
+                                    <img src="img/image.jpg" alt="User photo" class="side-slide-avatar" />
+                                    <div class="side-slide-stars">★★★★★</div>
+                                </div>
+                                <div class="side-slide-card-body">
+                                    <p class="side-slide-review-text">Lorem ipsum dolor sit amet,<br> consectetur
+                                        adipiscing elit</p>
+                                    <img src="https://w7.pngwing.com/pngs/604/836/png-transparent-quotation-mark-computer-icons-pull-quote-quote-logo-monochrome-computer-wallpaper-thumbnail.png"
+                                        alt="icon" class="side-slide-icon" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <!-- Flecha solo a la izquierda -->
+    </section>
+
+    <!-- SLIDER -3 -->
 
 </body>
 <!-- SLIDER -->
@@ -172,6 +535,56 @@
         },
     });
 </script>
-<!-- SLIDER -->
+
+<!-- SLIDER 2-->
+<script>
+    const centeredSwiper = new Swiper("#centered-slider .centeredSwiper", {
+        loop: true,
+        centeredSlides: true,
+        slidesPerView: 3,
+        spaceBetween: 20,
+        navigation: {
+            nextEl: "#centered-slider .swiper-button-next",
+            prevEl: "#centered-slider .swiper-button-prev",
+        },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        speed: 500,
+        breakpoints: {
+            768: {
+                slidesPerView: 3,
+            },
+            480: {
+                slidesPerView: 1,
+            },
+        },
+    });
+</script>
+
+<!-- SLIDER 3 -->
+<script>
+    const sideSwiper = new Swiper("#side-slider .sideSwiper", {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 20,
+        centeredSlides: false,
+        navigation: {
+            prevEl: "#side-slider .swiper-button-prev",
+        },
+        breakpoints: {
+            768: {
+                slidesPerView: 1,
+            },
+            480: {
+                slidesPerView: 1,
+            },
+            0: {
+                slidesPerView: 1,
+            },
+        },
+    });
+</script>
 
 </html>
