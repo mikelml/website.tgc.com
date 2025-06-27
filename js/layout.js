@@ -15,6 +15,7 @@ async function loadComponent(id, htmlPath, scriptPath) {
 }
 
 (async () => {
+  await loadComponent('navbar', 'components/navbar/index.html', 'components/navbar/script.js');
   await loadComponent('banner', 'components/banner/index.html', 'components/banner/script.js');
   await loadComponent('delatierraatumesa', 'components/delatierraatumesa/index.html', 'components/delatierraatumesa/script.js');
   await loadComponent('calidad', 'components/calidad/index.html', 'components/calidad/script.js');

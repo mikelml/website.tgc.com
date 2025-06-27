@@ -13,6 +13,7 @@
 }
 
 #nosotros {
+    scroll-margin-top: 100px;
     background-image: url('../../img/TGCFondoverde1.png');
     background-size: cover;
     /* Escala la imagen para cubrir toda la pantalla */

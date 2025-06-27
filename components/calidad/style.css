@@ -5,7 +5,9 @@
     font-weight: normal;
     font-style: normal;
 }
-
+#calidad {
+  scroll-margin-top: 200px;
+}
 .swiper {
   width: 100vw;
   height: 400px;
