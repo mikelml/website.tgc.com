@@ -1,0 +1,98 @@
+@font-face {
+    font-family: 'BEBAS';
+    src: url('./fonts/BEBAS.woff2') format('woff2');
+    /* ajusta formato y ruta según corresponda */
+    font-weight: normal;
+    font-style: normal;
+}
+
+.swiper {
+  width: 100vw;
+  height: 400px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Slides wrapper */
+.swiper-wrapper {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Cada slide */
+.swiper-slide {
+  height: 100%;
+}
+
+/* Imágenes dentro del slide */
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* Dots de paginación */
+.swiper-pagination {
+  position: absolute;
+  bottom: 30px;
+  left: calc(50% - 30px);
+  /* ← corregido: había un error de sintaxis */
+}
+
+.content-block {
+  padding: 0 10%;
+  /* padding a los bordes de la pantalla */
+}
+
+.grid-row {
+  display: flex;
+  flex-direction: row;
+  /* espacio entre columnas */
+  padding: 50px 30px;
+}
+
+.text-block {
+  color: #0054A0;
+  width: 70%;
+  text-align: right;
+  align-content: center;
+  padding: 0px 50px;
+  font-family: 'BEBAS', sans-serif;
+}
+.text-block h2 {
+    font-size: 27px;
+    font-weight: normal;
+    font-style: normal;
+    margin: 0px;
+}
+.logo-block {
+  width: 200px;
+}
+
+.logo-block img {
+  width: 100%;
+  min-height: 100px;
+  display: block;
+  object-fit: contain;
+  /* opcional: limita el tamaño del logo */
+}
+
+/* Responsive (opcional) */
+@media (max-width: 768px) {
+  .grid-row {
+    grid-template-columns: 1fr;
+    /* stack vertical en pantallas pequeñas */
+    gap: 10px;
+  }
+
+  .logo-block {
+    text-align: center;
+  }
+
+  .logo-block img {
+    max-width: 100px;
+    margin: 0 auto;
+  }
+}

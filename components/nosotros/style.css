@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'Fineday';
+    src: url('fonts/Fineday-StyleTwonon-connect.woff2') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BEBAS';
+    src: url('fonts/BEBAS.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#nosotros {
+    background-image: url('../../img/TGCFondoverde1.png');
+    background-size: cover;
+    /* Escala la imagen para cubrir toda la pantalla */
+    background-position: bottom;
+    /* Centrada horizontal y verticalmente */
+    background-repeat: no-repeat;
+    /* No repetir la imagen */
+    margin: 0;
+    min-height: 80vh;
+    font-family: 'Poppins', sans-serif;
+    /* ejemplo de fuente */
+}
+
+.nosotros {
+    padding: 100px 100px;
+    color: white;
+}
+
+.nosotros-contenido {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.nosotros-imagen {
+    flex: 1;
+    min-width: 350px;
+}
+
+.nosotros-imagen img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.nosotros-texto {
+    flex: 1;
+    min-width: 300px;
+}
+
+.nosotros-texto h4 {
+    font-size: 40px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-family: 'Fineday', serif;
+}
+
+.nosotros-texto h2 {
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.nosotros-texto p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.nosotros-texto button {
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    padding: 14px 34px;
+    font-size: 16px;
+    border-radius: 22px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'BEBAS', serif;
+}
+
+.nosotros-texto button:hover {
+    background-color: #c2185b;
+}

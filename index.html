@@ -5,183 +5,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: block;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="index.css">
-    <style>
-        .text-class {
-            font-size: 90px;
-            color: blue;
-        }
-
-        .img {
-            height: 100px;
-            width: 100px;
-        }
-
-        .img-class {
-            background-image: url('./img/image.jpg');
-            height: 200px;
-            background-repeat: repeat;
-        }
-    </style>
-    <style>
-        /* Contenedor principal */
-        #carrusel-enfoque {
-            display: flex;
-            gap: 20px;
-            overflow-x: scroll;
-            scroll-snap-type: x mandatory;
-            scroll-padding: 0 50%;
-            padding: 40px 0;
-            scroll-behavior: smooth;
-        }
-
-        /* Oculta scroll bar */
-        #carrusel-enfoque::-webkit-scrollbar {
-            display: none;
-        }
-
-        /* Cada ítem del carrusel */
-        #carrusel-enfoque .carrusel-item {}
-
-        /* Imágenes dentro del carrusel */
-        #carrusel-enfoque .carrusel-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* El ítem centrado: usando JS se activa esta clase */
-        #carrusel-enfoque .carrusel-item.activo {}
-
-        .carrusel-item {
-            filter: blur(4px);
-            transform: scale(0.9);
-            opacity: 0.6;
-            transition: all 0.4s ease;
-        }
-
-        .carrusel-item.activo {
-            filter: none;
-            transform: scale(1.1);
-            opacity: 1;
-            z-index: 2;
-        }
-    </style>
-    <style>
-        /* Contenedor principal */
-        #carrusel-enfoque {
-            display: flex;
-            gap: 20px;
-            overflow-x: scroll;
-            scroll-snap-type: x mandatory;
-            scroll-padding: 0 50%;
-            padding: 40px 0;
-            scroll-behavior: smooth;
-        }
-
-        /* Oculta scroll bar */
-        #carrusel-enfoque::-webkit-scrollbar {
-            display: none;
-        }
-
-        /* Cada ítem del carrusel */
-        #carrusel-enfoque .carrusel-item {}
-
-        /* Imágenes dentro del carrusel */
-        #carrusel-enfoque .carrusel-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* El ítem centrado: usando JS se activa esta clase */
-        #carrusel-enfoque .carrusel-item.activo {}
-
-        .carrusel-item {
-            filter: blur(4px);
-            transform: scale(0.9);
-            opacity: 0.6;
-            transition: all 0.4s ease;
-        }
-
-        .carrusel-item.activo {
-            filter: none;
-            transform: scale(1.1);
-            opacity: 1;
-            z-index: 2;
-        }
-    </style>
+    <link rel="stylesheet" href="components/banner/style.css">
+    <link rel="stylesheet" href="components/delatierraatumesa/style.css">
+    <link rel="stylesheet" href="components/calidad/style.css">
+    <link rel="stylesheet" href="components/nosotros/style.css">
+    <link rel="stylesheet" href="components/nosotros2/style.css">
+    <link rel="stylesheet" href="components/productos/style.css">
+    <link rel="stylesheet" href="components/reviews/style.css">
+    <link rel="stylesheet" href="components/contactanos/style.css">
+    <!-- <link rel="stylesheet" href="components/nosotros/style.css"> -->
 </head>
 
 <body>
-    <div>header</div>
-    <script src="/components/header.html"></script>
-    <div class="text-class">
-        HOLA MUNDO
-    </div>
-    <div class="text-class-red">
-        HOLA MUNDO
-    </div>
-    <div class="img-class">hey</div>
-    <img class="img" src="img/image.jpg" />
-    <div id="carrusel-enfoque" class="carrusel-container"> <!-- Mio-->
-        <div class="carrusel-item"> <!-- Imagen o contenido -->
-            <img src="https://esponjaslupita.com/wp/wp-content/uploads/2025/06/RASPBERRIES-ORGANIC-scaled.png"
-                alt="imagen 1" />
-        </div>
-        <div class="carrusel-item">
-            <img src="https://esponjaslupita.com/wp/wp-content/uploads/2025/06/STRAWBERRIES-ORGANIC-scaled.png"
-                alt="imagen 2" />
-        </div>
-        <div class="carrusel-item">
-
-
-            <img src="https://esponjaslupita.com/wp/wp-content/uploads/2025/06/BLUEBERRIES-ORGANIC-scaled.png"
-                alt="imagen 3" />
-
-        </div>
-
-
-
-    </div>
+    <div id="banner"></div>
+    <div id="delatierraatumesa"></div>
+    <div id="calidad"></div>
+    <div id="nosotros"></div>
+    <div id="nosotros2"></div>
+    <div id="productos"></div>
+    <div id="reviews"></div>
+    <div id="contactanos"></div>
 </body>
 
+<script type="text/javascript" async  src="js/layout.js"></script>
 <script type="text/javascript" src="index.js"></script>
-<script>
-    const contenedor = document.getElementById("carrusel-enfoque");
-    const items = contenedor.querySelectorAll(".carrusel-item");
-
-    function actualizarEnfoque() {
-        const centro = contenedor.scrollLeft + contenedor.offsetWidth / 2;
-
-        alert('hola corris')
-        let itemMasCercano = null;
-        let menorDistancia = Infinity;
-
-        items.forEach(item => {
-            const distancia = Math.abs(
-                centro - (item.offsetLeft + item.offsetWidth / 2)
-            );
-            if (distancia < menorDistancia) {
-                menorDistancia = distancia;
-                itemMasCercano = item;
-            }
-        });
-
-        items.forEach(item => item.classList.remove("activo"));
-        if (itemMasCercano) itemMasCercano.classList.add("activo");
-    }
-
-    contenedor.addEventListener("scroll", () => {
-        window.requestAnimationFrame(actualizarEnfoque);
-    });
-
-    window.addEventListener("load", () => {
-        actualizarEnfoque();
-        setInterval(() => {
-            contenedor.scrollLeft += items[0].offsetWidth + 20; // avanza al siguiente item
-        }, 1000);
-    });
-</script>
+<!-- <script type="text/javascript" src="components/banner/script.js"></script>
+<script type="text/javascript" src="components/delatierraatumesa/script.js"></script>
+<script type="text/javascript" src="components/calidad/script.js"></script> -->
+<!-- <script type="text/javascript" src="components/nosotros/script.js"></script> -->
 
 </html>
