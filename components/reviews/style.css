@@ -171,3 +171,6 @@
   font-weight: bold;
   font-family: sans-serif;
 }
+.swiper-container {
+  overflow: hidden;
+}

@@ -24,4 +24,5 @@ async function loadComponent(id, htmlPath, scriptPath) {
   await loadComponent('productos', 'components/productos/index.html', 'components/productos/script.js');
   await loadComponent('reviews', 'components/reviews/index.html', 'components/reviews/script.js');
   await loadComponent('contactanos', 'components/contactanos/index.html', 'components/contactanos/script.js');
+  await loadComponent('footer', 'components/footer/index.html', 'components/footer/script.js');
 })();
