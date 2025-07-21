@@ -1,6 +1,7 @@
 #contactanos {
-  scroll-margin-top: 130px;
+    scroll-margin-top: 130px;
 }
+
 .contactanos-container {
     display: flex;
     flex-direction: column;
@@ -9,12 +10,14 @@
     background-color: #ffffff;
 
 }
+
 .contactanos-container-title {
     font-size: 74px;
     color: #0054A0;
     margin-bottom: 20px;
     font-family: "fineday", sans-serif;
 }
+
 .contactanos-container-subtitle {
     font-size: 30px;
     color: #0054A0;
@@ -23,6 +26,7 @@
     max-width: 1000px;
     text-align: left;
 }
+
 .contactanos-form {
     display: flex;
     flex-direction: column;
@@ -31,6 +35,7 @@
     max-width: 1000px;
     padding: 30px;
 }
+
 .contactanos-form div {
     width: 98%;
     margin-bottom: 25px;
@@ -46,6 +51,7 @@
     color: #0054A0;
     font-weight: bold;
 }
+
 .contactanos-form div input {
     border-radius: 20px;
     border: 1px solid #0054A0;
@@ -54,16 +60,19 @@
     width: 100%;
     height: 35px;
 }
+
 .contactanos-form div input::placeholder {
     color: #0054A0;
     font-size: 20px;
     opacity: 0.5;
 }
+
 .contactanos-form div textarea::placeholder {
     color: #0054A0;
     font-size: 20px;
     opacity: 0.5;
 }
+
 .contactanos-form div textarea {
     border-radius: 20px;
     border: 1px solid #0054A0;
@@ -74,15 +83,30 @@
     resize: none;
     height: 35px;
 }
+
 .contactanos-form button {
     margin-top: 10px;
 }
+
 .contactanos-map {
     width: 80%;
     height: 400px;
     border-radius: 50px;
     margin-top: 20px;
 }
+
 .contactanos-map iframe {
     border-radius: 50px;
+}
+
+
+@media (max-width: 600px) {
+    .contactanos-form {
+        padding: 0;
+    }
+
+    .contactanos-form div input {
+        width: calc(100% - 20px);
+    }
+
 }

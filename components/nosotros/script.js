@@ -1,6 +1,6 @@
 function irAContacto() {
     // Ajusta esto según el ID o ruta de tu sección de contacto
-    window.location.href = "#contacto";
+    window.location.href = "#contactanos";
 }
 
 document.addEventListener("DOMContentLoaded", () => {

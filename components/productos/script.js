@@ -8,15 +8,22 @@ const centeredSwiper = new Swiper("#centered-slider .centeredSwiper", {
         prevEl: "#centered-slider .swiper-button-prev",
     },
     autoplay: {
-        delay: 10000000,
+        delay: 1500,
         disableOnInteraction: false,
     },
     speed: 500,
+
     breakpoints: {
         768: {
             slidesPerView: 3,
         },
+        680: {
+            slidesPerView: 2,
+        },
         480: {
+            slidesPerView: 1,
+        },
+        0: {
             slidesPerView: 1,
         },
     },

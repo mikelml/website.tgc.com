@@ -94,3 +94,11 @@
 .nosotros-texto button:hover {
     background-color: #c2185b;
 }
+
+
+@media (max-width: 500px) {
+  .nosotros-imagen {
+    min-width: 100%;
+  }
+
+}
