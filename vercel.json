@@ -11,9 +11,5 @@
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     }
-  ],
-  "fallback": {
-    "source": "/404.html",
-    "destination": "/index.html"
-  }
+  ]
 } 
