@@ -1,3 +1,9 @@
+@font-face {
+    font-family: 'Fineday';
+    src: url('./fonts/Fineday-StyleTwonon-connect.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 .products_title {
   font-family: 'Fineday', sans-serif;
