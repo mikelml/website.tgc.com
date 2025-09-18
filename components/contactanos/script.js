@@ -20,7 +20,7 @@
 			const formData = new FormData(form);
 			// Optional configs for FormSubmit
 			formData.append('_captcha', 'false');
-			// formData.append('_next', window.location.href + '#contactanos'); // optional redirect anchor
+			// formData.append('_next', window.location.href + '#contactanos'); / / optional redirect anchor
 
 			if (submitButton) {
 				submitButton.disabled = true;
